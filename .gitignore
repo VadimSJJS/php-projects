@@ -1,0 +1,21 @@
+# PHP
+/vendor/
+/composer.lock
+*.log
+.env
+.env.local
+
+# Системные
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+
+# Базы данных  
+*.sqlite
+*.db
+
+# Загрузки
+/uploads/
