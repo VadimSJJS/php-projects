@@ -5,5 +5,5 @@
 ### 1. calculator-factorization[калькулятор для нахождения простых множителей]
 <img width="1269" height="622" alt="изображение" src="https://github.com/user-attachments/assets/8f6c2476-b76b-4b7e-9691-1e735098fd07" />
 
-
-
+### 2. timers-vacation[таймер для отпусков]
+<img width="676" height="820" alt="изображение" src="https://github.com/user-attachments/assets/feddb1e7-008a-410d-8240-3a3cedd5427a" />
