@@ -1,0 +1,391 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    padding: 20px;
+    color: #333;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 40px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.subtitle {
+    font-size: 1.2em;
+    opacity: 0.9;
+}
+
+main {
+    padding: 40px;
+}
+
+.test-instructions {
+    background: #f0f4ff;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    border-left: 4px solid #667eea;
+}
+
+.test-instructions p {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.note {
+    color: #666;
+    font-style: italic;
+}
+
+.questions-list {
+    margin-bottom: 30px;
+}
+
+.question-item {
+    background: #f8f9ff;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #e0e6ff;
+}
+
+.question-number {
+    font-weight: bold;
+    color: #667eea;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.question-text {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.answer-input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1.1em;
+    transition: border-color 0.3s;
+}
+
+.answer-input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.answer-input::placeholder {
+    color: #999;
+}
+
+.test-controls {
+    text-align: center;
+}
+
+.submit-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 16px 40px;
+    font-size: 1.2em;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
+}
+
+/* Результаты */
+.results-section {
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.score-card {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+    padding: 40px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.score-card h2 {
+    font-size: 2em;
+    margin-bottom: 30px;
+}
+
+.score-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.percentage-circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: conic-gradient(#4CAF50 var(--percentage, 0%), #f0f0f0 0%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    animation: circleFill 1.5s ease-out;
+}
+
+.percentage-circle::before {
+    content: '';
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background: white;
+    border-radius: 50%;
+}
+
+.percentage-value {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #333;
+    z-index: 1;
+}
+
+@keyframes circleFill {
+    from {
+        --percentage: 0%;
+    }
+
+    to {
+        --percentage: attr(data-percentage);
+    }
+}
+
+.score-details {
+    text-align: left;
+    max-width: 300px;
+}
+
+.score-details p {
+    margin-bottom: 15px;
+    font-size: 1.2em;
+}
+
+.score-message {
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.answers-review {
+    margin-bottom: 30px;
+}
+
+.answers-review h3 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+
+.answers-list {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.answer-item {
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    border-left: 4px solid;
+}
+
+.answer-item.correct {
+    background: #f0fff4;
+    border-left-color: #4CAF50;
+}
+
+.answer-item.incorrect {
+    background: #fff0f0;
+    border-left-color: #f44336;
+}
+
+.answer-question {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.answer-comparison {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.user-answer,
+.correct-answer {
+    padding: 8px 12px;
+    border-radius: 5px;
+}
+
+.user-answer {
+    background: #fff;
+}
+
+.correct-answer {
+    background: #f8f9ff;
+}
+
+.restart-form {
+    text-align: center;
+}
+
+.restart-btn {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 16px 40px;
+    font-size: 1.2em;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.restart-btn:hover {
+    background: #45a049;
+}
+
+.test-info {
+    background: #f8f9ff;
+    padding: 25px;
+    border-radius: 10px;
+    margin-top: 30px;
+    border: 1px solid #e0e6ff;
+}
+
+.test-info h3 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 1.3em;
+}
+
+.test-info ul {
+    list-style-position: inside;
+    padding-left: 10px;
+}
+
+.test-info li {
+    margin-bottom: 10px;
+    padding-left: 10px;
+}
+
+footer {
+    background: #f8f9fa;
+    padding: 20px;
+    text-align: center;
+    color: #666;
+    border-top: 1px solid #e0e0e0;
+}
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+    .container {
+        border-radius: 10px;
+    }
+
+    header,
+    main {
+        padding: 20px;
+    }
+
+    header h1 {
+        font-size: 2em;
+    }
+
+    .score-display {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .score-details {
+        text-align: center;
+    }
+
+    .percentage-circle {
+        width: 120px;
+        height: 120px;
+    }
+
+    .percentage-circle::before {
+        width: 90px;
+        height: 90px;
+    }
+
+    .percentage-value {
+        font-size: 2em;
+    }
+
+    .answer-comparison {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    header h1 {
+        font-size: 1.7em;
+    }
+
+    .submit-btn,
+    .restart-btn {
+        width: 100%;
+        padding: 14px 20px;
+    }
+}
